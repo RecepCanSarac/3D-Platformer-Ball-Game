@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public PlayerController controller;
+    private PlayerController controller;
     void Start()
     {
         controller = FindObjectOfType<PlayerController>();

@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public float speed;
     private float movement;
     public  Vector3 respawnPoint;
-    public GameManager gameManager;
+    private GameManager gameManager;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
