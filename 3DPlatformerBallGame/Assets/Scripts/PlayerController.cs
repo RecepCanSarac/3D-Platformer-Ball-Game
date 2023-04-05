@@ -8,11 +8,13 @@ public class PlayerController : MonoBehaviour
     public float pushForce;
     public float speed;
     private float movement;
-    private Vector3 respawnPoint;
+    public  Vector3 respawnPoint;
+    public GameManager gameManager;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         respawnPoint = transform.position;
+        gameManager  = FindObjectOfType<GameManager>();
     }
 
     private void Update()
@@ -30,7 +32,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("barier"))
         {
-            transform.position = respawnPoint;
+            gameManager.PlayerSpawner();
         }
     }
 }
