@@ -25,12 +25,22 @@ public class PlayerController : MonoBehaviour
     {
         rb.AddForce(0,0,pushForce * Time.fixedDeltaTime);
         rb.velocity = new Vector3(movement * speed ,rb.velocity.y,rb.velocity.z);
+        FallDetector();
     }
 
 
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("barier"))
+        {
+            gameManager.PlayerSpawner();
+        }
+    }
+
+
+    private void FallDetector()
+    {
+        if (rb.position.y < -2f)
         {
             gameManager.PlayerSpawner();
         }
