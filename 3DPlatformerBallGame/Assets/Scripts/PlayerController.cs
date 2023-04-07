@@ -36,9 +36,17 @@ public class PlayerController : MonoBehaviour
             gameManager.PlayerSpawner();
             
         }
+       
+            
     }
 
-
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("nextLevel"))
+        {
+            gameManager.LevelUp();
+        }
+    }
     private void FallDetector()
     {
         if (rb.position.y < -2f)
