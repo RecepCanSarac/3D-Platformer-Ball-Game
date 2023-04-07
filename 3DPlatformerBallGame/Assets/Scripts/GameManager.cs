@@ -5,18 +5,23 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     private PlayerController controller;
+    [SerializeField]
+    private float respawnDelay = 2f;
     void Start()
     {
         controller = FindObjectOfType<PlayerController>();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
     public void PlayerSpawner()
     {
+        StartCoroutine("RespawnCoroutine");
+    }
+
+    IEnumerator RespawnCoroutine()
+    {
+        controller.gameObject.SetActive(false);
+        yield return new WaitForSeconds(respawnDelay);
         controller.transform.position = controller.respawnPoint;
+        controller.gameObject.SetActive(true);
     }
 }
