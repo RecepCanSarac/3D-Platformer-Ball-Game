@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,6 +9,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private float respawnDelay = 2f;
     private bool isGameEnding = false;
+    [SerializeField]
+    private Text scoreTXT;
+    private int score;
     void Start()
     {
         controller = FindObjectOfType<PlayerController>();
@@ -27,5 +31,11 @@ public class GameManager : MonoBehaviour
         controller.transform.position = controller.respawnPoint;
         controller.gameObject.SetActive(true);
         isGameEnding = false;
+    }
+
+    public void AddScore(int numberOfScore)
+    {
+        score += numberOfScore;
+        scoreTXT.text = score.ToString();
     }
 }

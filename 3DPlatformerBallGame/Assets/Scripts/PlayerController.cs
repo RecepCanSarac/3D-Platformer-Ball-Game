@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("barier"))
         {
             gameManager.PlayerSpawner();
+            
         }
     }
 
