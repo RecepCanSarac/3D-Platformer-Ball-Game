@@ -1154,7 +1154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pushForce: 700
-  speed: 10
+  speed: 14
   respawnPoint: {x: 0, y: 0, z: 0}
 --- !u!23 &1099397789
 MeshRenderer:
@@ -1325,6 +1325,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6baf90fe24d4b314daa0eac9d3514357, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  respawnDelay: 2
 --- !u!4 &1286008167
 Transform:
   m_ObjectHideFlags: 0

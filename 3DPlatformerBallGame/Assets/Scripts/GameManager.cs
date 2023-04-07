@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     private PlayerController controller;
     [SerializeField]
     private float respawnDelay = 2f;
+    private bool isGameEnding = false;
     void Start()
     {
         controller = FindObjectOfType<PlayerController>();
@@ -14,7 +15,9 @@ public class GameManager : MonoBehaviour
     
     public void PlayerSpawner()
     {
-        StartCoroutine("RespawnCoroutine");
+        if(!isGameEnding)
+            StartCoroutine("RespawnCoroutine");
+            isGameEnding = true;
     }
 
     IEnumerator RespawnCoroutine()
@@ -23,5 +26,6 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(respawnDelay);
         controller.transform.position = controller.respawnPoint;
         controller.gameObject.SetActive(true);
+        isGameEnding = false;
     }
 }
